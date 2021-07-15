@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-sandbox 
+  name: nginx-sandbox
   namespace: argocd
 spec:
   destination:
@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    helm:
-      valueFiles:
-      - values.yaml
+    # path to the folder with the YAML manifests
     path: solutions/helm/nginx-deployment
     repoURL: https://github.com/DeaconBlu/udacity
     targetRevision: HEAD
+  # Sync policy
+  syncPolicy: {}
